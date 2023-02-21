@@ -15,3 +15,10 @@ class GitHub:
         body = r.json()
 
         return body
+
+    # get repository
+    def get_repo(self, own, repo):
+        r = requests.get(f"https://api.github.com/repos/{own}/{repo}")
+        body = r.json()
+
+        return body

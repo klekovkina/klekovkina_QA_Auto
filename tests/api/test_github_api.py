@@ -31,3 +31,9 @@ def test_repo_cannot_be_found(github_api):
 def test_repo_with_single_char_be_found(github_api):
     r = github_api.search_repo("o")
     assert r["total_count"] != 0
+
+
+@pytest.mark.api  # test getting exist repository
+def test_get_exist_repo(github_api):
+    r = github_api.get_repo("klekovkina", "klekovkina_qa_auto")
+    assert r["full_name"] == "klekovkina/klekovkina_QA_Auto"
